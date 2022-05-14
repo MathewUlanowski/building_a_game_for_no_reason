@@ -9,6 +9,8 @@ def GameLoop(config: Configuration):
     run_condition = True
     while run_condition:
         main_surface.refresh()
+        
+        pygame.draw.circle(main_surface.Window,[255,255,255], [50, 20], 100)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run_condition = False

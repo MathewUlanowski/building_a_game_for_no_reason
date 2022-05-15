@@ -1,27 +1,14 @@
 import pygame
 
-class Rectangle:
+from Models.Shapes.Shape_Base_Model import ShapeBase
 
-    def __init__(self,rectsize,color:tuple,location:tuple,__defaultSurface):
-        self.__BaseSetup(rectsize,color,location,__defaultSurface)
-        
-
-    def __BaseSetup(self,rectsize,color:tuple,location:tuple,__defaultSurface):
-        self.RectSize = rectsize
-        self.Color = color
-        self.Location = location
-        self.__DefaultSurface = __defaultSurface
+class Square(ShapeBase):
+    def __init__(self, size, color: tuple, location: tuple,surface) -> None:
+        super().__init__(size, color, location)
+        self.__DefaultSurface = surface
         
     def Display(self):
-        pygame.draw.rect(self.__DefaultSurface,self.color,self.RectSize)
-
-    def MoveTo(self,moveX:tuple,moveY:tuple):
-        self.Move = pygame.Rect.move(self,moveX,moveY)
-
-    def Move_Y(self,moveY):
-        self.Location[1] = self.Location[1] + moveY
-    def Move_X(self,moveX):
-        self.Location[0] = self.Location[0] + moveX
+        pygame.draw.rect(self.__DefaultSurface,self.Color,pygame.Rect(self.Location[0] - self.Size/2,self.Location[1] - self.Size/2,self.Size,self.Size))
 
     def Rotate(self,angle):
          pygame.transform.rotate(self, angle)

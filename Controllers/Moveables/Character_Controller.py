@@ -1,8 +1,9 @@
 import pygame
 from Models.Shapes.Circle_Model import Circle
+from Models.Shapes.Rect_Model import Square
 
 
-class Character(Circle):
+class Character(Square):
     def __init__(self, size, color: tuple, location: tuple, __defaultSurface,x_bounds,y_bounds):
         super().__init__(size, color, location, __defaultSurface)
         self.XMomentum = 0
@@ -29,25 +30,25 @@ class Character(Circle):
         if self.Location[1]>self.YBounds[1]:
             self.Location = (self.Location[0],self.YBounds[1])
     
+    def ChangeDefaultSpeed(self, change):
+        self.DefaultSpeed = self.DefaultSpeed + change
+        if self.DefaultSpeed < 0:
+            self.DefaultSpeed = 0
+    
     def AccelerateX(self,change):
         self.XMomentum += change
     def AccelerateY(self,change):
         self.YMomentum += change
 
-
-
-
-
     def RepelBoundry(self,padding):
         if self.Location[0] < self.XBounds[0]+padding:
             self.AccelerateX(0.1)
-            pass
         if self.Location[0] > self.XBounds[1]-padding:
             self.AccelerateX(-0.1)
-            pass
         if self.Location[1] < self.YBounds[0]+padding:
             self.AccelerateY(0.1)
-            pass
         if self.Location[1] > self.YBounds[1]-padding:
             self.AccelerateY(-0.1)
-            pass
+
+    def RepelLocation(self,location:tuple):
+        pass 

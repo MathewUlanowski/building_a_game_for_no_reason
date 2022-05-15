@@ -19,13 +19,11 @@ class EventController:
     def AddToggle(self,event):
         try:
             self.__ToggledInputs.append(event)
-            print(f"Added: {event}")
         except:
             print("error adding event:\n".upper() + str(event))
     def RemoveToggle(self,event):
         try:
             self.__ToggledInputs.remove(event)
-            print(f"Removed: {event}")
         except:
             print("error removing event:\n".upper() + str(event))
     def getToggles(self):

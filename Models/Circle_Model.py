@@ -16,7 +16,7 @@ class Circle:
     def Display(self):
         pygame.draw.circle(self.__DefaultSurface,self.Color,self.Location,self.Size)
 
-    def MoveTo(self, moveX:tuple,moveY:tuple):
+    def MoveTo(self, moveX,moveY):
         self.Move = pygame.Rect.move(self,moveX,moveY)
 
 

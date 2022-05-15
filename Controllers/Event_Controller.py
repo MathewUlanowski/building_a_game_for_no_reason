@@ -31,5 +31,8 @@ class EventController:
             print("error removing event:\n".upper() + str(event))
     def getToggles(self):
         return self.__ToggledInputs
-    def IsToggled(self,key):
+
+    def IsToggled(self,key:int):
         return True if key in self.getToggles() else False
+    def QuitGame(self):
+        self.Run_Condition = False

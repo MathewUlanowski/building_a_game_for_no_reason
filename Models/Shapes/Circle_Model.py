@@ -12,18 +12,21 @@ class Circle:
         self.Color = color
         self.Location = location
         self.__DefaultSurface = __defaultSurface
+        self.DefaultSpeed = 1
+        self.Visible = True
         
+    def ToggleVisibility(self):
+        self.Visible = not self.Visible
     def Display(self):
-        pygame.draw.circle(self.__DefaultSurface,self.Color,self.Location,self.Size)
+        if self.Visible:
+            pygame.draw.circle(self.__DefaultSurface,self.Color,self.Location,self.Size)
 
-    def MoveTo(self, moveX:tuple,moveY:tuple):
-        self.Move = pygame.Rect.move(self,moveX,moveY)
-
-
+    def MoveTo(self, x_loc,y_loc):
+        self.Location = (x_loc,y_loc)
     def Move_Y(self,moveY):
-        self.Location[1] = self.Location[1] + moveY
+        self.Location = (self.Location[0],self.Location[1]+moveY)
     def Move_X(self,moveX):
-        self.Location[0] = self.Location[0] + moveX
+        self.Location = (self.Location[0]+moveX,self.Location[1])
 
     
     def Rotate(self,angle):
@@ -38,3 +41,7 @@ class Circle:
         self.Size = self.Size + change
         if self.Size < 0 :
             self.Size = 0
+    def ChangeDefaultSpeed(self, change):
+        self.DefaultSpeed = self.DefaultSpeed + change
+        if self.DefaultSpeed < 0:
+            self.DefaultSpeed = 0

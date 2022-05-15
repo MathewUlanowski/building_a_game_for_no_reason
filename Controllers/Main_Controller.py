@@ -10,7 +10,6 @@ def GameLoop(config: Configuration):
     pygame.init()
     main_surface = Screen(config.window_dimensions, config.background_color, "My Boring Game")
     run_condition = True
-    firstSchema = Load_Schema("./Assets/Resources/Colors/")
 
     while run_condition:
         main_surface.refresh()

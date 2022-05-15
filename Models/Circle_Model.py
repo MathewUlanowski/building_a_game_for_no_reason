@@ -28,3 +28,13 @@ class Circle:
     
     def Rotate(self,angle):
          pygame.transform.rotate(self, angle)
+    
+    def SetSize(self, size):
+        self.Size = size
+        if self.Size < 0:
+            self.Size = 0
+
+    def ChangeSize(self, change):
+        self.Size = self.Size + change
+        if self.Size < 0 :
+            self.Size = 0

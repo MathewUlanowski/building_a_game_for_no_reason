@@ -1,6 +1,6 @@
 from glob import glob
-from Models.Color_Model import ColorPallete
-from Models.Color_Schema_Model import ColorSchema
+from Models.Colors.Color_Model import ColorPallete
+from Models.Colors.Color_Schema_Model import ColorSchema
 
 
 def Load_Pallete(path):

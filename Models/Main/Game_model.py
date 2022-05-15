@@ -12,14 +12,17 @@ class Game(EventController):
         EventController.__init__(self)
         pygame.init()
         # pygame.joystick.init()
-        config = Configuration("./settings.json")
-        self.Surface = Screen(config.window_dimensions,config.background_color,"Boring Game")
-        self.Height = config.window_dimensions[1]
-        self.Width = config.window_dimensions[0]
-        self.main_schema = Load_Schema("./Assets/Resources/Colors/Main")
+        config = Configuration()
+        self.Surface = Screen(config.WindowDimensions,config.BackgroundColor,"Boring Game")
+        self.Height = config.WindowDimensions[1]
+        self.Width = config.WindowDimensions[0]
+        self.FrameRate = config.FrameRate
+        self.Main_schema = Load_Schema("./Assets/Resources/Colors/Main")
+        self.GameClock = pygame.time.Clock()
 
     # the logic for what is ran each loop
     def RunGameTick(self):
+        self.GameClock.tick(self.FrameRate)
         self.Surface.refresh()
         self.Key_Event_Handler()
         self.Surface.Update()

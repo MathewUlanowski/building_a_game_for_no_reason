@@ -31,5 +31,5 @@ class EventController:
             print("error removing event:\n".upper() + str(event))
     def getToggles(self):
         return self.__ToggledInputs
-    def IsToggled(self,):
-        return False
+    def IsToggled(self,key):
+        return True if key in self.getToggles() else False

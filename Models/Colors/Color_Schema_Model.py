@@ -1,4 +1,4 @@
-from Models.Color_Model import ColorPallete
+from Models.Colors.Color_Model import ColorPallete
 
 
 class ColorSchema:
@@ -7,5 +7,5 @@ class ColorSchema:
     
     def addPalette(self,paletteName, palette:ColorPallete):
         self.__palettes[paletteName] = palette
-    def GetPalette(self,paletteName):
+    def GetPalette(self,paletteName) -> ColorPallete:
         return self.__palettes[paletteName]

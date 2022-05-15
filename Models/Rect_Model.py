@@ -3,10 +3,10 @@ import pygame
 class Rectangle:
 
     def __init__(self,rectsize,color:tuple,location:tuple,__defaultSurface):
-        self.__baseSetup(rectsize,color,location,__defaultSurface)
+        self.__BaseSetup(rectsize,color,location,__defaultSurface)
         
 
-    def __baseSetup(self,rectsize,color:tuple,location:tuple,__defaultSurface):
+    def __BaseSetup(self,rectsize,color:tuple,location:tuple,__defaultSurface):
         self.RectSize = rectsize
         self.Color = color
         self.Location = location

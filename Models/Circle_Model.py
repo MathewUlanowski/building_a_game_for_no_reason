@@ -4,10 +4,10 @@ import pygame
 class Circle:
 
     def __init__(self,size,color:tuple,location:tuple,__defaultSurface):
-        self.__baseSetup(size,color,location,__defaultSurface)
+        self.__BaseSetup(size,color,location,__defaultSurface)
         
 
-    def __baseSetup(self,size,color:tuple,location:tuple,__defaultSurface):
+    def __BaseSetup(self,size,color:tuple,location:tuple,__defaultSurface):
         self.Size = size
         self.Color = color
         self.Location = location

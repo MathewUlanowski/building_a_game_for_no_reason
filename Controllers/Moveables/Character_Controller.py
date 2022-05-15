@@ -9,6 +9,7 @@ class Character(Circle):
         self.YMomentum = 0
         self.XBounds = x_bounds
         self.YBounds = y_bounds
+        self.DefaultSpeed = 1
 
     def Run(self):
         self.Travel()

@@ -1,5 +1,4 @@
 from glob import glob
-from msilib import schema
 from Models.Color_Model import ColorPallete
 from Models.Color_Schema_Model import ColorSchema
 

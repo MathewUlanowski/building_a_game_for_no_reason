@@ -1,7 +1,5 @@
 import pygame
 
-from Models.Screen_Model import Screen
-
 
 class Circle:
 
@@ -28,3 +26,5 @@ class Circle:
         self.Location[0] = self.Location[0] + moveX
 
     
+    def Rotate(self,angle):
+         pygame.transform.rotate(self, angle)

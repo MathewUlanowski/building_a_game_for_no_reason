@@ -11,6 +11,5 @@ def Load_Schema(path):
     schema = ColorSchema()
     for fileName in glob(path+"/*.json"):
         key = fileName.rsplit("\\", 1)[1].replace(".json","")
-        print(key)
         schema.addPalette(key,ColorPallete(fileName))
     return schema

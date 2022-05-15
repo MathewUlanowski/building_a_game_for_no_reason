@@ -25,7 +25,9 @@ class Game(EventController):
             20,
             self.Main_schema.GetPalette("Warm-Autumn").GetColor("Catawba"),
             (self.Width/2,self.Height/2),
-            self.Surface.Window
+            self.Surface.Window,
+            (0,self.Width),
+            (0,self.Height)
             )
 
     # the logic for what is ran each loop
@@ -36,7 +38,7 @@ class Game(EventController):
 
         # some testing to move stuff based on inputs
         
-
+        # directional movement
         if self.IsToggled(pygame.K_a):
             self.TestCircle.AccelerateX(-self.TestCircle.DefaultSpeed)
         if self.IsToggled(pygame.K_d):
@@ -45,14 +47,16 @@ class Game(EventController):
             self.TestCircle.AccelerateY(-self.TestCircle.DefaultSpeed)
         if self.IsToggled(pygame.K_s):
             self.TestCircle.AccelerateY(self.TestCircle.DefaultSpeed)
+        # handles acc/dec
         if self.IsToggled(pygame.K_UP):
             self.TestCircle.ChangeDefaultSpeed(0.1)
         if self.IsToggled(pygame.K_DOWN):
             self.TestCircle.ChangeDefaultSpeed(-0.1)
+        # toggle visibility
         if self.IsToggled(pygame.K_SPACE):
-            pass
+            self.TestCircle.ToggleVisibility()
         
-        self.TestCircle.Travel()
+        self.TestCircle.Run()
 
         if self.IsToggled(pygame.K_ESCAPE):
             self.QuitGame()

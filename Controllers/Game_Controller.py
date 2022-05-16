@@ -6,8 +6,9 @@ from Controllers.Moveables.Character_Controller import Character
 from Models.Main.Screen_Model import Screen
 from Models.Main.Config import Configuration
 from Models.Shapes.Circle_Model import Circle
+from Models.Shapes.Line_Model import Line
 from Models.Shapes.Rect_Model import Square
-
+from Helpers.Distance_Helper import *
 
 class Game(EventController):
     def __init__(self):
@@ -28,7 +29,15 @@ class Game(EventController):
             self.Surface.Window,
             (0,self.Width),
             (0,self.Height)
-            )
+        )
+        self.GuideLine = Line(
+            self.Surface.Window,
+            self.Main_schema.GetPalette("Base-Colors").GetColor("Green"),
+            self.TestCircle.Location,
+            pygame.mouse.get_pos(),
+            1
+        )
+        self.GuideLine.Visible = False
 
     # the logic for what is ran each loop
     def RunGameTick(self):
@@ -53,10 +62,12 @@ class Game(EventController):
         if self.IsToggled(pygame.K_DOWN):
             self.TestCircle.ChangeDefaultSpeed(-0.1)
         # toggle visibility
-        if self.IsToggled(pygame.K_SPACE):
-            self.TestCircle.ToggleVisibility()
-        
         self.TestCircle.Run()
+        if self.IsToggled(pygame.K_SPACE):
+            self.GuideLine.Visible = True
+            self.GuideLine.SetStart(self.TestCircle.Location)
+            self.GuideLine.SetEnd(pygame.mouse.get_pos())
+            self.GuideLine.Display()
 
         if self.IsToggled(pygame.K_ESCAPE):
             self.QuitGame()

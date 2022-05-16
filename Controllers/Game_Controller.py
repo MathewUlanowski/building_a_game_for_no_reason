@@ -6,7 +6,7 @@ from Controllers.Moveables.Character_Controller import Character
 from Models.Main.Screen_Model import Screen
 from Models.Main.Config import Configuration
 from Models.Shapes.Circle_Model import Circle
-from Models.Shapes.Rect_Model import Rectangle
+from Models.Shapes.Rect_Model import Square
 
 
 class Game(EventController):

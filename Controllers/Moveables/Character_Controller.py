@@ -3,7 +3,7 @@ from Models.Shapes.Circle_Model import Circle
 from Models.Shapes.Rect_Model import Square
 
 
-class Character(Square):
+class Character(Circle):
     def __init__(self, size, color: tuple, location: tuple, __defaultSurface,x_bounds,y_bounds):
         super().__init__(size, color, location, __defaultSurface)
         self.XMomentum = 0

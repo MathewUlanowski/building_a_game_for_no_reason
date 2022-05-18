@@ -1,13 +1,13 @@
+from Models.Shapes.Entity_Model import EntityModel
 
 
-
-class ShapeBase:
+class ShapeBase(EntityModel):
     def __init__(self,size,color:tuple,location:tuple) -> None:
-        self.__BaseSetup(size,color,location)
-    def __BaseSetup(self,size,color:tuple,location:tuple):
+        super().__init__(location)
+        self.__BaseSetup(size,color)
+    def __BaseSetup(self,size,color:tuple):
         self.Size = size
         self.Color = color
-        self.Location = location
         self.Visible = True
     def ToggleVisibility(self):
         self.Visible = not self.Visible
